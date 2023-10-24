@@ -20,7 +20,7 @@ NODE *random_tree1(unsigned int max_depth, int top_val) {
   if (!DeepState_Bool()) {
     return NULL;
   }
-  NODE *top = create_node(top);
+  NODE *top = create_node(top_val);
   int v_left = DeepState_Int();
   ASSUME(v_left < top_val);
   top->left = random_tree1(max_depth - 1, v_left);
@@ -34,7 +34,7 @@ NODE *random_tree2(unsigned int max_depth, int top_val) {
   if (!DeepState_Bool()) {
     return NULL;
   }
-  NODE *top = create_node(top);
+  NODE *top = create_node(top_val);
   int v_left;
   ASSIGN_SATISFYING(v_left, DeepState_Int(), v_left < top_val);  
   top->left = random_tree2(max_depth - 1, v_left);
